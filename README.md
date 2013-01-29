@@ -17,3 +17,11 @@ hurryUp(function(next) {
   console.error("timeout has occurred!")
 })
 ```
+
+Here's an easier way to wrap around a method:
+
+```javascript
+hurryUp(emitter.once, 1000).call(emitter, "connected", function(err, result) {
+  
+});
+```
