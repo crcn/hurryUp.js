@@ -1,0 +1,19 @@
+{
+  "name": "hurryup",
+  "version": "0.0.0",
+  "description": "hurryUp.js ==========",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/crcn/hurryUp.js.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "comerr": "0.0.x"
+  }
+}
