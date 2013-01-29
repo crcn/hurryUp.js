@@ -13,7 +13,7 @@ hurryUp(function(next) {
   
   //this will cause an error
   setTimeout(next, 2000);
-}, function(err, result) {
+}, 1000).call(null, function(err, result) {
   console.error("timeout has occurred!")
-}, 1000);
+})
 ```
