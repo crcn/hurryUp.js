@@ -45,5 +45,20 @@ describe("hurryup", function() {
       expect(count).to.be(11);
       done();
     });
+  });
+
+  it("can fail a retry function", function(done) {
+    var count = 0;
+
+    hurryUp(function(cb) {
+      cb(new Error("not done yet!"));
+    }, {
+      retry: true,
+      retryTimeout: 1,
+      timeout: 50
+    }).call(null, function(err) {
+      expect(err).not.to.be(undefined);
+      done();
+    });
   })
 });
