@@ -15,5 +15,12 @@
   "readmeFilename": "README.md",
   "dependencies": {
     "comerr": "0.0.x"
+  },
+  "devDependencies": {
+    "expect.js": "0.2.x",
+    "mocha": "1.8.x"
+  },
+  "scripts": {
+    "test": "mocha --reporter=min"
   }
 }
