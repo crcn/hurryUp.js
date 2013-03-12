@@ -21,6 +21,6 @@
     "mocha": "1.8.x"
   },
   "scripts": {
-    "test": "mocha --reporter=min"
+    "test": "mocha --reporter min"
   }
 }
