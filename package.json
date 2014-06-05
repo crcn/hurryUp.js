@@ -1,6 +1,6 @@
 {
   "name": "hurryup",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "hurryUp.js ==========",
   "main": "./lib/index.js",
   "scripts": {

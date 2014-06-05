@@ -47,6 +47,27 @@ describe("hurryup", function() {
     });
   });
 
+  it("can dispose a hurryup call", function (done) {
+
+    var count = 0;
+    var c = hurryUp(function (cb) {
+      setTimeout(function () {
+        count++;
+        cb(new Error("a"));
+      }, 0);
+    }, { retry: true, retryTimeout: 1 });
+
+    setTimeout(function () {
+      expect(count).to.be(1);
+      done();
+    }, 50);
+
+
+    c().dispose();
+
+
+  });
+
   it("can fail a retry function", function(done) {
     var count = 0;
 
