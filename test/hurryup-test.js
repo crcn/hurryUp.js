@@ -42,9 +42,58 @@ describe("hurryup", function() {
       retry: true,
       retryTimeout: 1
     }).call(null, function(err) {
+      expect(err).to.be(undefined);
       expect(count).to.be(11);
       done();
     });
+  });
+
+  it("retries when options.retry is a function and returns true", function(done) {
+
+    var count = 0;
+
+    hurryUp(function(cb) {
+      if(count > 10) {
+        return cb();
+      } else {
+        count++;
+        cb(new Error(count));
+      }
+    }, {
+      retry: function(err) {
+        return Number(err.message) < 12;
+      },
+      retryTimeout: 1
+    }).call(null, function(err) {
+      expect(err).to.be(undefined);
+      expect(count).to.be(11);
+      done();
+    });
+
+  });
+
+  it("doesn't retry when options.retry is a function and returns false", function(done) {
+
+    var count = 0;
+
+    hurryUp(function(cb) {
+      if(count > 10) {
+        return cb();
+      } else {
+        count++;
+        cb(new Error(count));
+      }
+    }, {
+      retry: function(err) {
+        return Number(err.message) < 10;
+      },
+      retryTimeout: 1
+    }).call(null, function(err) {
+      expect(err.message).to.be("10");
+      expect(count).to.be(10);
+      done();
+    });
+
   });
 
   it("can dispose a hurryup call", function (done) {
