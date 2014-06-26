@@ -1,5 +1,7 @@
-hurryUp.js
-==========
+## hurryUp.js
+
+[![Testling](https://ci.testling.com/crcn/crcn.js.png)](https://ci.testling.com/classdojo/crcn.js)
+
 
 timeout library for callbacks
 

@@ -4,11 +4,23 @@
   "description": "hurryUp.js ==========",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --ui tdd --reporter dot"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/crcn/hurryUp.js.git"
+  },
+  "testling": {
+    "files": ["./node_modules/es5-shim/es5-shim.js", "./node_modules/es5-shim/es5-sham.js", "test/*-test.js"],
+    "harness": "mocha-tdd",
+    "browsers": [
+      "ie/7..latest",
+      "firefox/3.5",
+      "firefox/latest",
+      "chrome/latest",
+      "safari/latest",
+      "opera/latest"
+    ]
   },
   "author": "",
   "license": "BSD",
@@ -18,9 +30,8 @@
   },
   "devDependencies": {
     "expect.js": "0.2.x",
-    "mocha": "1.8.x"
-  },
-  "scripts": {
-    "test": "mocha --reporter min"
+    "mocha": "1.8.x",
+    "es5-shim": "3.4.0",
+    "testling": "1.7.0"
   }
 }
