@@ -1,21 +1,15 @@
-## hurryUp.js
+HurryUp is a timeout library for asynchronous, fault-prone function calls. Basically, it'll timeout an async call if it's been running for too long. You can also specify to re-call async functions if they fail.
 
-[![Testling](https://ci.testling.com/crcn/hurryup.js.png)](https://ci.testling.com/hurryup/hurryup.js)
+#### hurryUp(asyncCallback, optionsOrTimeout, ...args)
 
-
-timeout library for callbacks
-
-
-## API
-
-### hurryUp(timedCallback, optionsOrTimeout, ...args)
-
+- `asyncCallback` - async function to call
 - `optionsOrTimeout` 
   - `object` - options passed
     - `retry` - TRUE if the timedCallback should be re-called if it returns an error
     - `retryTimeout` - timeout between retrying timed callback
     - `timeout` - kill timeout
   - `number` - the timeout before killing the function call
+- `...args` - additional arguments to pass to the async callback
 
 ```javascript
 hurryUp(function(next) {
@@ -34,7 +28,6 @@ hurryUp(emitter.once, 1000).call(emitter, "connected", function(err, result) {
   
 });
 ```
-
 
 You can also use hurryup to run a callback multiple times until it succeeds, like so:
 
