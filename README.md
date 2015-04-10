@@ -1,4 +1,4 @@
-HurryUp is a timeout library for asynchronous, fault-prone function calls. Basically, it'll timeout an async call if it's been running for too long. You can also specify to re-call async functions if they fail.
+HurryUp is a timeout library for asynchronous, fault-prone function calls. Basically, it'll timeout an async call if it's been running for too long. You can also specify to re-call async functions until they succeed (see below).
 
 #### hurryUp(asyncCallback, optionsOrTimeout, ...args)
 
